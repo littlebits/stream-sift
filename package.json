@@ -1,0 +1,30 @@
+{
+  "name": "little-matcher",
+  "version": "0.0.1",
+  "description": "little-matcher ==============",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^1.9.2",
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "mocha": "^1.21.4"
+  },
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/littlebits/little-matcher.git"
+  },
+  "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/littlebits/little-matcher/issues"
+  },
+  "homepage": "https://github.com/littlebits/little-matcher"
+}
