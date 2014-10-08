@@ -1,5 +1,4 @@
 compile = require('../lib/compiler')
-# flatten = compile.flatten
 
 
 
