@@ -2,7 +2,7 @@ compile = require('../lib/compiler')
 
 
 
-describe 'little-matcher compiler', ->
+describe 'compile()', ->
   spec0 = { a: { b: $eq: 2 } }
   spec1 = { a: { b: $eq: 2 }, c: { $lt: 4 } }
   spec2 = { a: { b: { $gt:50, $lt:60 } } }
@@ -14,23 +14,7 @@ describe 'little-matcher compiler', ->
       name: null
       conditions: [{
         name:'$or'
-        config:[{
-          name: null
-          conditions: []
-          leafs: [{
-            name:'a'
-            conditions:[]
-            leafs: [{
-              name: 'b'
-              conditions:[{ name:'$lt', config:{value:4} }]
-              leafs: []
-            }]
-          },{
-            name:'c'
-            conditions:[{name:'$gt',config:{value:1}}]
-            leafs:[]
-          }]
-        }]
+        config:[{a:{b:{$lt:4}}, c:{$gt:1}}]
       }]
       leafs: []
     actual = compile(spec)
@@ -49,10 +33,7 @@ describe 'little-matcher compiler', ->
           name: 'b'
           conditions: [{
             name:'$or'
-            config: [
-              {name:null,conditions:[{name: '$eq', config:{value:2}}],leafs:[]}
-              {name:null,conditions:[{name:'$eq', config:{value:5}}],leafs:[]}
-            ]
+            config: [{$eq:2},{$eq:5}]
           }]
           leafs: []
         },{
