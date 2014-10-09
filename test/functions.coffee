@@ -2,7 +2,7 @@ m = require('../lib/index')
 
 
 
-describe '<$fn>()', ->
+describe '$fns', ->
 
   it '$mod tests if the data divided by value equals a remainder of 0 by default', ->
     test = m({a:{$mod:5}})
