@@ -2,7 +2,7 @@
   "name": "little-matcher",
   "version": "0.0.1",
   "description": "little-matcher ==============",
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
