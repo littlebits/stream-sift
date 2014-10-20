@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script/register",
-    "start": "mocha --compilers coffee:coffee-script/register --watch"
+    "start": "mocha --compilers coffee:coffee-script/register --watch",
+    "test-debug": "DEBUG=little-matcher* mocha --compilers coffee:coffee-script/register"
   },
   "repository": {
     "type": "git",
