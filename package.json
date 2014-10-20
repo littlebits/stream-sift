@@ -1,7 +1,7 @@
 {
   "name": "little-matcher",
   "version": "0.0.1",
-  "description": "little-matcher ==============",
+  "description": "little-matcher",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
