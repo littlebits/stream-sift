@@ -5,7 +5,7 @@ M = require('../lib/index')
 describe 'threshold functions', ->
 
   it '$cross', ->
-    test = M(a:$cross:50)
+    test = M(a:$c:50)
     eq test(a:10), false # initial is always false!
     eq test(a:60), true
     eq test(a:40), true
@@ -15,7 +15,7 @@ describe 'threshold functions', ->
     eq test(a:47), true # triggers because beyond hysteresis zone
 
   it '$crossOrEqual', ->
-    test = M(a:$crossOrEqual:50)
+    test = M(a:$ce:50)
     eq test(a:10), false # initial is always false!
     eq test(a:60), true
     eq test(a:40), true
@@ -25,7 +25,7 @@ describe 'threshold functions', ->
 
   describe '$crossOrEqual edge-case', ->
     test = undefined
-    beforeEach -> test = M(a:$crossOrEqual:50)
+    beforeEach -> test = M(a:$ce:50)
 
     it 'rise from below to equal then down again', ->
       eq [test(a:10), test(a:50), test(a:10)], [false, true, true]
@@ -40,7 +40,7 @@ describe 'threshold functions', ->
       eq [test(a:90), test(a:48), test(a:10)], [false, true, false]
 
   it '$crossGreaterThan:x', ->
-    test = M(a:$crossGreaterThan:50)
+    test = M(a:$cgt:50)
     eq test(a:10), false
     eq test(a:50), false
     eq test(a:60), true
@@ -50,7 +50,7 @@ describe 'threshold functions', ->
     eq test(a:60), true
 
   it '$crossGreaterThanOrEqual:x', ->
-    test = M(a:$crossGreaterThanOrEqual:50)
+    test = M(a:$cgte:50)
     eq test(a:10), false
     eq test(a:50), true
     eq test(a:60), false
@@ -60,7 +60,7 @@ describe 'threshold functions', ->
     eq test(a:60), true
 
   it '$crossLessThan:x', ->
-    test = M(a:$crossLessThan:50)
+    test = M(a:$clt:50)
     eq test(a:10), true
 
     eq test(a:50), false
@@ -73,7 +73,7 @@ describe 'threshold functions', ->
     eq test(a:49), true
 
   it '$crossLessThanOrEqual:x', ->
-    test = M(a:$crossLessThanOrEqual:50)
+    test = M(a:$clte:50)
     eq test(a:10), true
 
     eq test(a:50), false
