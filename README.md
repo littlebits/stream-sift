@@ -74,7 +74,7 @@ Non-directional threshold functions. Check if a number crosses a given level.
 ```js
 { input: { percent: { $cross: 50 } } } // false, false, false
 { input: { percent: { $cross: 40 } } } // false, true, true
-{ input: { percent: { $crossOrEqual: 50 } } } // false, true, false
+{ input: { percent: { $crossOrEqual: 50 } } } // false, true, true
 ```
 
 

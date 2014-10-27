@@ -9,10 +9,35 @@ describe 'threshold functions', ->
     eq test(a:10), false # initial is always false!
     eq test(a:60), true
     eq test(a:40), true
-    eq test(a:50), false # becuase *not* OrEqual semantic!
+    eq test(a:50), false # becuase *not* OrEqual semantic
     eq test(a:51), true
     eq test(a:48), false # hysteresis size is 48-50
     eq test(a:47), true # triggers because beyond hysteresis zone
+
+  it '$crossOrEqual', ->
+    test = M(a:$crossOrEqual:50)
+    eq test(a:10), false # initial is always false!
+    eq test(a:60), true
+    eq test(a:40), true
+    eq test(a:50), true # becuase *is* OrEqual semantic
+    eq test(a:49), false # hysteresis size is 48-50
+    eq test(a:48), true # at hysteresis zone and OrEqual semantic
+
+  describe '$crossOrEqual edge-case', ->
+    test = undefined
+    beforeEach -> test = M(a:$crossOrEqual:50)
+
+    it 'rise from below to equal then down again', ->
+      eq [test(a:10), test(a:50), test(a:10)], [false, true, true]
+
+    it 'rise from below to equal then up further', ->
+      eq [test(a:10), test(a:50), test(a:90)], [false, true, false]
+
+    it 'falling from above to equal then up again', ->
+      eq [test(a:90), test(a:48), test(a:90)], [false, true, true]
+
+    it 'falling from above to equal then down further', ->
+      eq [test(a:90), test(a:48), test(a:10)], [false, true, false]
 
   it '$crossGreaterThan:x', ->
     test = M(a:$crossGreaterThan:50)
