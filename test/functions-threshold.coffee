@@ -4,6 +4,16 @@ M = require('../lib/index')
 
 describe 'threshold functions', ->
 
+  it '$cross', ->
+    test = M(a:$cross:50)
+    eq test(a:10), false # initial is always false!
+    eq test(a:60), true
+    eq test(a:40), true
+    eq test(a:50), false # becuase *not* OrEqual semantic!
+    eq test(a:51), true
+    eq test(a:48), false # hysteresis size is 48-50
+    eq test(a:47), true # triggers because beyond hysteresis zone
+
   it '$crossGreaterThan:x', ->
     test = M(a:$crossGreaterThan:50)
     eq test(a:10), false
