@@ -1,6 +1,6 @@
 {
   "name": "little-matcher",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "little-matcher",
   "main": "lib/index.js",
   "directories": {
