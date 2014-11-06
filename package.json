@@ -11,6 +11,10 @@
     "lodash": "^2.4.1",
     "hysteresis": "0.0.2"
   },
+  "repository": {
+    "url": "https://github.com/littlebits/stream-sift.git",
+    "type": "git"
+  },
   "keywords": [
     "sift",
     "filter",
@@ -19,17 +23,13 @@
     "stream",
     "performance"
   ],
-  "repository": {
-    "url": "https://github.com/littlebits/stream-sift.git",
-    "type": "git"
-  },
   "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
   "name": "stream-sift",
   "directories": {
     "test": "test"
   },
   "homepage": "https://github.com/littlebits/stream-sift",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "lib/index.js",
   "description": "A minimal high-performance specification-backed stateful object matching engine",
   "devDependencies": {
