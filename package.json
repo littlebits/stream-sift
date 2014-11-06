@@ -1,7 +1,7 @@
 {
-  "name": "little-matcher",
+  "name": "stream-sift",
   "version": "0.1.0",
-  "description": "little-matcher",
+  "description": "stream-sift",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
@@ -19,16 +19,16 @@
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script/register",
     "start": "mocha --compilers coffee:coffee-script/register --watch",
-    "test-debug": "DEBUG=little-matcher* mocha --compilers coffee:coffee-script/register"
+    "test-debug": "DEBUG=stream-sift* mocha --compilers coffee:coffee-script/register"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/littlebits/little-matcher.git"
+    "url": "https://github.com/littlebits/stream-sift.git"
   },
   "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/littlebits/little-matcher/issues"
+    "url": "https://github.com/littlebits/stream-sift/issues"
   },
-  "homepage": "https://github.com/littlebits/little-matcher"
+  "homepage": "https://github.com/littlebits/stream-sift"
 }

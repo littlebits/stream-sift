@@ -1,4 +1,4 @@
-# little-matcher
+# stream-sift
 
 A minimal high-performance specification-backed stateful object matching engine
 
@@ -7,15 +7,15 @@ A minimal high-performance specification-backed stateful object matching engine
 ## Installation
 
 Until this project is published do this:
-
-    npm install --save littlebits/little-matcher
-
+```sh
+npm install --save stream-sift
+```
 
 
 ## Overview
 
 #### What
-little-matcher is a document [1] pattern-matching library. If you have used mongoDB query search syntax, this will feel familiar. Also, because little-matcher works at the document level, it is suitable to build higher-level abstractions that compile down to a little-matcher schema (eg: a RQL-like library). However, direct document pattern-matching can be (or *is* the) correct API sometimes (eg: HTTP payloads, function argument pattern-matching, ...).
+stream-sift is a document [1] pattern-matching library. If you have used mongoDB query search syntax, this will feel familiar. Also, because stream-sift works at the document level, it is suitable to build higher-level abstractions that compile down to a stream-sift schema (eg: a RQL-like library). However, direct document pattern-matching can be (or *is* the) correct API sometimes (eg: HTTP payloads, function argument pattern-matching, ...).
 
 
 
@@ -23,7 +23,7 @@ little-matcher is a document [1] pattern-matching library. If you have used mong
 
 
 #### How
-little-matcher is divided into a "core" and "library". The core is an engine suitable for building arbitrary $functions on top of. Currently this project is "batteries included" meaning that a $function library is included, but is entirely modular and apart from core. In the future the $function library will be made its own project.
+stream-sift is divided into a "core" and "library". The core is an engine suitable for building arbitrary $functions on top of. Currently this project is "batteries included" meaning that a $function library is included, but is entirely modular and apart from core. In the future the $function library will be made its own project.
 
 
 
@@ -126,7 +126,6 @@ Logical functions.
 
 ## Roadmap
 #### New $fns
-- $cross
 - $in
 - $nin
 - $regex
