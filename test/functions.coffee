@@ -1,35 +1,32 @@
-m = require('../lib/index')
-
-
 
 describe '$fns', ->
 
   describe '$mod', ->
-    it 'matches if the data divided by value equals a remainder of 0 by default', ->
-      test = m({a:{$mod:5}})
-      eq test({a:5}), true
+    it '(by default) matches if data/value equals remainder of 0', ->
+      test = ss a:$mod:5
+      t test(a:5)
 
-    it 'matches if the data divided by value equals given remainder', ->
-      test = m({a:{$mod:{value:5,remainder:2}}})
-      eq test({a:5}), false
-      eq test({a:12}), true
+    it 'matches if the data/value equals given remainder', ->
+      test = ss a:$mod:value:5, remainder:2
+      f test(a:5)
+      t test(a:12)
 
 
 
 describe 'Special value "*"', ->
 
   it 'matches anything afterward', ->
-    test = m a:b:c:'*'
-    eq test(a:b:c:'foo'), true
+    test = ss a:b:c:'*'
+    t test a:b:c:'foo'
 
   it 'at root matches anything', ->
-    test = m '*'
-    eq test(a:'foobar'), true
-    eq test('foobar'), true
-    eq test(a:b:c:'foobar'), true
+    test = ss '*'
+    t test a:'foobar'
+    t test 'foobar'
+    t test a:b:c:'foobar'
 
   it 'honours AND semantics', ->
-    test = m a:'*', b:{c:'d'}
-    eq test(b:c:'d'), false
-    eq test(a:'foo'), false
-    eq test(a:{b:'foo'}, b:c:'d'), true
+    test = ss a:'*', b:{c:'d'}
+    f test b:c:'d'
+    f test a:'foo'
+    t test a:{b:'foo'}, b:c:'d'

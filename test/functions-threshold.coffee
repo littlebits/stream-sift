@@ -1,31 +1,28 @@
-M = require('../lib/index')
-
-
 
 describe 'threshold functions', ->
 
   it '$cross', ->
-    test = M(a:$c:50)
-    eq test(a:10), false # initial is always false!
-    eq test(a:60), true
-    eq test(a:40), true
-    eq test(a:50), false # becuase *not* OrEqual semantic
-    eq test(a:51), true
-    eq test(a:48), false # hysteresis size is 48-50
-    eq test(a:47), true # triggers because beyond hysteresis zone
+    test = ss(a:$c:50)
+    f test a:10 # initial is always false!
+    t test a:60
+    t test a:40
+    f test a:50 # becuase *not* OrEqual semantic
+    t test a:51
+    f test a:48 # hysteresis size is 48-50
+    t test a:47 # triggers because beyond hysteresis zone
 
   it '$crossOrEqual', ->
-    test = M(a:$ce:50)
-    eq test(a:10), false # initial is always false!
-    eq test(a:60), true
-    eq test(a:40), true
-    eq test(a:50), true # becuase *is* OrEqual semantic
-    eq test(a:49), false # hysteresis size is 48-50
-    eq test(a:48), true # at hysteresis zone and OrEqual semantic
+    test = ss a:$ce:50
+    f test a:10 # initial is always false!
+    t test a:60
+    t test a:40
+    t test a:50 # becuase *is* OrEqual semantic
+    f test a:49 # hysteresis size is 48-50
+    t test a:48 # at hysteresis zone and OrEqual semantic
 
   describe '$crossOrEqual edge-case', ->
     test = undefined
-    beforeEach -> test = M(a:$ce:50)
+    beforeEach -> test = ss a:$ce:50
 
     it 'rise from below to equal then down again', ->
       eq [test(a:10), test(a:50), test(a:10)], [false, true, true]
@@ -40,47 +37,47 @@ describe 'threshold functions', ->
       eq [test(a:90), test(a:48), test(a:10)], [false, true, false]
 
   it '$crossGreaterThan:x', ->
-    test = M(a:$cgt:50)
-    eq test(a:10), false
-    eq test(a:50), false
-    eq test(a:60), true
-    eq test(a:48), false
-    eq test(a:60), false
-    eq test(a:47), false
-    eq test(a:60), true
+    test = ss a:$cgt:50
+    f test a:10
+    f test a:50
+    t test a:60
+    f test a:48
+    f test a:60
+    f test a:47
+    t test a:60
 
   it '$crossGreaterThanOrEqual:x', ->
-    test = M(a:$cgte:50)
-    eq test(a:10), false
-    eq test(a:50), true
-    eq test(a:60), false
-    eq test(a:49), false
-    eq test(a:60), false
-    eq test(a:48), false
-    eq test(a:60), true
+    test = ss a:$cgte:50
+    f test a:10
+    t test a:50
+    f test a:60
+    f test a:49
+    f test a:60
+    f test a:48
+    t test a:60
 
   it '$crossLessThan:x', ->
-    test = M(a:$clt:50)
-    eq test(a:10), true
+    test = ss a:$clt:50
+    t test a:10
 
-    eq test(a:50), false
-    eq test(a:49), false
+    f test a:50
+    f test a:49
 
-    eq test(a:52), false
-    eq test(a:49), false
+    f test a:52
+    f test a:49
 
-    eq test(a:53), false
-    eq test(a:49), true
+    f test a:53
+    t test a:49
 
   it '$crossLessThanOrEqual:x', ->
-    test = M(a:$clte:50)
-    eq test(a:10), true
+    test = ss a:$clte:50
+    t test a:10
 
-    eq test(a:50), false
-    eq test(a:49), false
+    f test a:50
+    f test a:49
 
-    eq test(a:51), false
-    eq test(a:49), false
+    f test a:51
+    f test a:49
 
-    eq test(a:52), false
-    eq test(a:49), true
+    f test a:52
+    t test a:49
