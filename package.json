@@ -6,7 +6,6 @@
     "test-debug": "DEBUG=stream-sift* mocha --compilers coffee:coffee-script/register"
   },
   "dependencies": {
-    "chai": "^1.9.2",
     "debug": "^2.0.0",
     "lodash": "^2.4.1",
     "hysteresis": "0.0.2"
@@ -33,6 +32,7 @@
   "main": "lib/index.js",
   "description": "A minimal high-performance specification-backed stateful object matching engine",
   "devDependencies": {
+    "chai": "^1.9.2",
     "coffee-script": "^1.8.0",
     "mocha": "^1.21.4"
   },
