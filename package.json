@@ -28,12 +28,12 @@
     "test": "test"
   },
   "homepage": "https://github.com/littlebits/stream-sift",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "lib/index.js",
   "description": "A minimal high-performance specification-backed stateful object matching engine",
   "devDependencies": {
-    "chai": "^1.9.2",
     "coffee-script": "^1.8.0",
+    "chai": "^1.9.2",
     "mocha": "^1.21.4"
   },
   "bugs": {
