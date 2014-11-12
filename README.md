@@ -40,7 +40,7 @@ Check for an exact match.
 { input: { percent: { $eq: 20 } } } // false
 ```
 
-You should not have to use `$eq` directly because it is the default semantic:
+You should not have to use `$eq` directly because literal values provide the same function:
 ```js
 { input: { percent: 10 } // true
 { input: { percent: 20 } } // false
@@ -62,6 +62,18 @@ Check for numeric conditions.
 { input: { percent: { $lt: 10 } } } // false
 { input: { percent: { $lte: 9 } } } // false
 { input: { percent: { $lte: 10 } } } // true
+```
+
+#### $mod
+Divide by value and check if remainder equals another value. The default remainder-check is against `0` and thus can be phrased as "does this static value evenly fit into the incoming value".
+```js
+{ input: { percent: 80 } }
+```
+```
+{ input: { percent: { $mod: 10 } } } // true
+{ input: { percent: { $mod: 39 } } } // false
+{ input: { percent: { $mod: { value: 10, remainder: 2 } } } // false
+{ input: { percent: { $mod: { value: 39, remainder: 2 } } } // true
 ```
 
 
