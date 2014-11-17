@@ -6,7 +6,6 @@ A minimal high-performance specification-backed stateful object matching engine
 
 ## Installation
 
-Until this project is published do this:
 ```sh
 npm install --save stream-sift
 ```
