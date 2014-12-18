@@ -7,7 +7,7 @@ var data = require('./data/stream-data.json')
 
 var stream = Kefir.sequentially(1000, data)
 //var spec = { "input" : { $and [ { $eq : 1 }, { $lte: 5 } ] } }
-var spec = { "input" : { $eq : 5 } }
+var spec = { "input" : { $cgte : 5 } }
 var ss = streamSift(spec)
 
 //apply observable
