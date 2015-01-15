@@ -1,4 +1,4 @@
-compile = require('../lib/compiler')
+compile = require('../lib/tokenize')
 
 
 
