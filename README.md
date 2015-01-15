@@ -1,4 +1,4 @@
-# stream-sift
+# stream-sift [![Circle CI](https://circleci.com/gh/littlebits/stream-sift.svg?style=svg)](https://circleci.com/gh/littlebits/stream-sift)
 
 A minimal high-performance specification-backed stateful object matching engine
 
