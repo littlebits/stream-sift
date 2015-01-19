@@ -4,12 +4,12 @@ describe '$fns', ->
   describe '$mod', ->
     it '(by default) matches if data/value equals remainder of 0', ->
       test = ss a:$mod:5
-      t test(a:5)
+      t test a:5
 
     it 'matches if the data/value equals given remainder', ->
-      test = ss a:$mod:value:5, remainder:2
-      f test(a:5)
-      t test(a:12)
+      test = ss a:$$mod:value:5, remainder:2
+      f test a:5
+      t test a:12
 
 
 

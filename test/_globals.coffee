@@ -13,7 +13,7 @@ GLOBAL.eq = (a, b)->
 
 
 
-# Expose helpers
+# Expose Helpers
 
 GLOBAL.log = (a)->
   console.log i(a, depth: 100)

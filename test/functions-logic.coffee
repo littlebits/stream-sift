@@ -19,8 +19,8 @@ describe 'Logic Functions', ->
     f test a:{b:29},z:29
 
   it '$and deep/shallow $gt', ->
-    test = ss {$and: [{a:b:$gt:30}, {z:$gt:30}] }
-    t test a:{b:31},z:31
+    test = ss $and: [{a:b:$gt:30}, {z:$gt:30}]
+    t test a:{b:31}, z:31
     f test a:{b:31},z:29
     f test a:{b:29},z:31
     f test a:{b:29},z:29
