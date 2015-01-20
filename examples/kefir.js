@@ -1,17 +1,33 @@
 var streamSift = require('../lib')
-var Kefir = require('./utils.js')
+var Kefir = require('Kefir')
+var colors = require('colors/safe')
 var data = require('./data/stream-data.json')
 
-//stream emitters
+
+/**
+* @desc Creates a Kefir stream with given values Ends when values are delivered.
+* @param integer ms: interval in milliseconds.
+* @param array data: array of values as JSON objects
+*/
+var stream = Kefir.sequentially(500, data)
+
+var spec = { "percent" : { $gte : 50 } }  //set schema for stream sift to match
+//console.log("Let's find all the values of 'percent' greater then equal to 50: ")
 
 
-var stream = Kefir.sequentially(1000, data)
-//var spec = { "input" : { $and [ { $eq : 1 }, { $lte: 5 } ] } }
-var spec = { "input" : { $cgte : 5 } }
+/**
+* @desc Stream Sift object
+* @param object spec
+*/
 var ss = streamSift(spec)
 
-//apply observable
+/**
+* @desc Apply observable to the stream and output data and predicate to stdout
+*/
+
 stream.onValue(function(x){
-  console.log(x)
-  console.log( ss(x) )
+  console.log(colors.green("data:        "), x)
+  console.log(colors.green("spec:       "), spec)
+  console.log(colors.green("predicate:        "), ss(x))
+  console.log()
 })
