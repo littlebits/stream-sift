@@ -1,71 +1,81 @@
-var data = require('./data.json')
+var data = require('./data/data.json')
 var streamSift = require('../lib')
+var c = require('colors/safe')
 
-
-/*
-
-Relational Matching
-
-A Match is determined by testing the relational expression of a
-value provided in a specification.
-
+/**
+* $eq
 */
-
-// Equivalency
-// $eq
-
 var spec  = { input : { $eq : 1 } }
 var ss  = streamSift(spec)
 
 
 data.map(function(obj){
-  console.log(spec, obj, ss(obj))
+  stdout("$eq", spec, obj, ss(obj))
 })
 
-// $nq
+/**
+* $neq
+*/
 
 var spec = { input : { $neq : 1 } }
 var ss = streamSift(spec)
 
 data.map(function(obj){
-  console.log(spec, obj, ss(obj))
+  stdout("$neq", spec, obj, ss(obj))
 })
 
 
-// Greater Than
-// $gt
+/**
+* $gt
+*/
 
 var spec = { input : { $gt : 1 } }
 var ss = streamSift(spec)
 
 data.map(function(obj){
-  console.log(spec, obj, ss(obj))
+  stdout("$gt", spec, obj, ss(obj))
 })
 
-// $gte
+/**
+* $gte
+*/
 
 var spec = { input : { $gte : 1 } }
 var ss = streamSift(spec)
 
 data.map(function(obj){
-  console.log(spec, obj, ss(obj))
+  stdout("$gte", spec, obj, ss(obj))
 })
 
-// Less Than
-// $lt
+/**
+* $lt
+*/
 
 var spec = { input : { $lt : 1 } }
 var ss = streamSift(spec)
 
 data.map(function(obj){
-  console.log(spec, obj, ss(obj))
+  stdout("$lt", spec, obj, ss(obj))
 })
 
-// $lte
+/**
+* $lte
+*/
 
 var spec = { input : { $lte : 1 } }
 var ss = streamSift(spec)
 
 data.map(function(obj){
-  console.log(spec, obj, ss(obj))
+  stdout("$lte", spec, obj, ss(obj))
 })
+
+//ugly console helper
+function stdout (fn, spec, obj, predicate){
+  var falsey = c.red
+  var truthy = c.green
+  console.log("function:    ", fn)
+  console.log("spec:        ", spec)
+  console.log("object:      ", obj)
+  console.log("predicate:   ", predicate ? truthy(predicate) : falsey(predicate))
+  console.log()
+}

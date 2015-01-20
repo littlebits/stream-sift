@@ -1,4 +1,4 @@
-var data = require('data.json')
+var data = require('./data/data.json')
 var streamSift = require('../lib')
 
 

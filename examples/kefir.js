@@ -1,8 +1,12 @@
 var streamSift = require('../lib')
 var Kefir = require('Kefir')
 var colors = require('colors/safe')
+/**
+* This example will create a 'simulated' stream based off of
+* sample data from a littleBits api.
+*
+**/
 var data = require('./data/stream-data.json')
-
 
 /**
 * @desc Creates a Kefir stream with given values Ends when values are delivered.
@@ -10,10 +14,7 @@ var data = require('./data/stream-data.json')
 * @param array data: array of values as JSON objects
 */
 var stream = Kefir.sequentially(500, data)
-
 var spec = { "percent" : { $gte : 50 } }  //set schema for stream sift to match
-//console.log("Let's find all the values of 'percent' greater then equal to 50: ")
-
 
 /**
 * @desc Stream Sift object
@@ -26,8 +27,9 @@ var ss = streamSift(spec)
 */
 
 stream.onValue(function(x){
-  console.log(colors.green("data:        "), x)
+  console.log(colors.green("data:        "))
+  console.log(x)
   console.log(colors.green("spec:       "), spec)
-  console.log(colors.green("predicate:        "), ss(x))
+  console.log(colors.green("predicate:       "), (ss(x) ? colors.green(JSON.stringify(ss(x))) : colors.red(JSON.stringify(ss(x)))))
   console.log()
 })
