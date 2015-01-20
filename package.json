@@ -6,6 +6,7 @@
     "test-debug": "DEBUG=stream-sift* mocha --compilers coffee:coffee-script/register"
   },
   "dependencies": {
+    "colors": "^1.0.3",
     "debug": "^2.0.0",
     "hysteresis": "0.0.2",
     "kefir": "^0.4.1",
