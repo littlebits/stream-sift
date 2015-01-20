@@ -1,6 +1,6 @@
 describe 'compilation error "undefined function"', ->
 
-  it 'occurs if a function in the spec does not exist in the context', ->
+  it 'correctly reports within a single-path single-func case', ->
     a.throws (-> ss a: b: $bar: 5),
     """
 Error: The function "$bar" is not defined.
@@ -10,6 +10,20 @@ Error: The function "$bar" is not defined.
     "b": {
       "$bar": 5
         ^^^
+    }
+  }
+}"""
+
+  it 'correctly reports within a single-path single-kwargsfunc case', ->
+    a.throws (-> ss a: b: $$bar: 5),
+    """
+Error: The function "$$bar" is not defined.
+
+{
+  "a": {
+    "b": {
+      "$$bar": 5
+         ^^^
     }
   }
 }"""
