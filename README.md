@@ -154,7 +154,6 @@ Longhand | Shorthand
 N/A | `$xor`
 `$and` | N/A
 `$notAnd` | `$nand`
-```
 
 ```js
 { input: { percent: 100, foo: 'bar' } }, { input: { percent: 100, foo: 'zed' } }, { input: { percent: 50, foo: 'zed' } }
