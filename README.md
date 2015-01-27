@@ -30,8 +30,8 @@ npm install --save stream-sift
 
 Longhand | Shorthand
 -|-
-N/A | `$eq`
-N/A | `$neq`
+`$equal` | `$eq`
+`$notEqual` | `$neq`
 
 ```js
 { input: { percent: 10 } }
@@ -52,10 +52,10 @@ You should not have to use `$eq` directly because literal values provide the sam
 
 Longhand | Shorthand
 -|-
-N/A | `$gt`
-N/A | `$gte`
-N/A | `$lt`
-N/A | `$lte`
+`$greaterThan` | `$gt`
+`$greaterThanOrEqual` | `$gte`
+`$lessThan` | `$lt`
+`$lessThenOrEqual` | `$lte`
 
 ```js
 { input: { percent: 10 } }
@@ -135,7 +135,7 @@ Longhand | Shorthand
 
 Longhand | Shorthand
 -|-
-`$not` | N/A
+`$not` | `$n`
 
 ```js
 { input: { percent: 100, foo: 'bar' } }, { input: { percent: 100, foo: 'zed' } }, { input: { percent: 50, foo: 'zed' } }
@@ -150,10 +150,10 @@ Longhand | Shorthand
 Longhand | Shorthand
 -|-
 `$or` | N/A
-`$nor` | N/A
-`$xor` | N/A
+`$notOr` | `$nor`
+N/A | `$xor`
 `$and` | N/A
-`$nand` | N/A
+`$notAnd` | `$nand`
 ```
 
 ```js
@@ -180,12 +180,3 @@ LongHand | Shorthand
 `$in` | N/A
 `$notIn` | `$nin`
 `$regex` | `$re`
-`$equal` | N/A (already done)
-`$notAnd` | N/A (already done)
-`$notOr` | N/A (already done)
-`$notEqual` | N/A (already done)
-`$greaterThan` | N/A (already done)
-`$greaterThanOrEqual` | N/A (already done)
-`$lessThan` | N/A (already done)
-`$lessThanOrEqual` | N/A (already done)
-N/A (already done) | `$n`
