@@ -1,5 +1,5 @@
 var debug = require('debug')('stream-sift:func')
-var u = require('../utils')
+var u = require('../lib/utils')
 var Hysteresis = require('hysteresis')
 
 

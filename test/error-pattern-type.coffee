@@ -1,4 +1,4 @@
-errors = require('../lib/compiler/errors')
+errors = require('../lib/errors')
 
 
 
