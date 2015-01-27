@@ -1,4 +1,4 @@
-compile = require('../lib/tokenize')
+compile = require('../lib/parse-pattern')
 
 
 
