@@ -29,7 +29,7 @@ npm install --save stream-sift
 #### Equivalence Functions
 
 Longhand | Shorthand
--|-
+---|---
 `$equal` | `$eq`
 `$notEqual` | `$neq`
 
@@ -51,7 +51,7 @@ You should not have to use `$eq` directly because literal values provide the sam
 #### Conditional Numeric Functions
 
 Longhand | Shorthand
--|-
+---|---
 `$greaterThan` | `$gt`
 `$greaterThanOrEqual` | `$gte`
 `$lessThan` | `$lt`
@@ -72,7 +72,7 @@ Longhand | Shorthand
 ```
 
 Longhand | Shorthand
--|-
+---|---
 N/A | $mod
 
 Divide by value and check if remainder equals another value. The default remainder-check is against `0` and thus can be phrased as "does this static value evenly fit into the incoming value".
@@ -92,7 +92,7 @@ Divide by value and check if remainder equals another value. The default remaind
 ###### Check if a number crosses a specified value.
 
 Longhand | Shorthand
--|-
+---|---
 `$cross` | `$c`
 `$crossOrEqual` | `$ce`
 
@@ -110,7 +110,7 @@ Longhand | Shorthand
 ###### Track when a number rises (using `crossGreaterThan*`) or falls (using `crossLessThan*`) beyond a specified value.
 
 Longhand | Shorthand
--|-
+---|---
 `$crossGreaterThan` | `$cgt`
 `$crossGreaterThanOrEqual` | `$cgte`
 `$crossLessThan` | `$clt`
@@ -134,7 +134,7 @@ Longhand | Shorthand
 #### Sub-Expression Negation
 
 Longhand | Shorthand
--|-
+---|---
 `$not` | `$n`
 
 ```js
@@ -148,7 +148,7 @@ Longhand | Shorthand
 #### Logical Functions
 
 Longhand | Shorthand
--|-
+---|---
 `$or` | N/A
 `$notOr` | `$nor`
 N/A | `$xor`
@@ -176,7 +176,7 @@ N/A | `$xor`
 #### New $fns
 
 LongHand | Shorthand
--|-
+---|---
 `$in` | N/A
 `$notIn` | `$nin`
 `$regex` | `$re`
