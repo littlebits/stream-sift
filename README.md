@@ -28,7 +28,7 @@ npm install --save stream-sift
 
 #### Equivalence Functions
 
-Longhand | Shorthand
+Function Name | Alias
 ---|---
 `$equal` | `$eq`
 `$notEqual` | `$neq`
@@ -50,7 +50,7 @@ You should not have to use `$eq` directly because literal values provide the sam
 
 #### Conditional Numeric Functions
 
-Longhand | Shorthand
+Function Name | Alias
 ---|---
 `$greaterThan` | `$gt`
 `$greaterThanOrEqual` | `$gte`
@@ -71,9 +71,9 @@ Longhand | Shorthand
 { input: { percent: { $lte: 10 } } } // true
 ```
 
-Longhand | Shorthand
+Function Name | Alias
 ---|---
-N/A | $mod
+$mod | -
 
 Divide by value and check if remainder equals another value. The default remainder-check is against `0` and thus can be phrased as "does this static value evenly fit into the incoming value".
 
@@ -91,7 +91,7 @@ Divide by value and check if remainder equals another value. The default remaind
 #### Threshold Functions
 ###### Check if a number crosses a specified value.
 
-Longhand | Shorthand
+Function Name | Alias
 ---|---
 `$cross` | `$c`
 `$crossOrEqual` | `$ce`
@@ -109,7 +109,7 @@ Longhand | Shorthand
 #### Direction-bias Threshold Functions
 ###### Track when a number rises (using `crossGreaterThan*`) or falls (using `crossLessThan*`) beyond a specified value.
 
-Longhand | Shorthand
+Function Name | Alias
 ---|---
 `$crossGreaterThan` | `$cgt`
 `$crossGreaterThanOrEqual` | `$cgte`
@@ -133,7 +133,7 @@ Longhand | Shorthand
 
 #### Sub-Expression Negation
 
-Longhand | Shorthand
+Function Name | Alias
 ---|---
 `$not` | `$n`
 
@@ -147,12 +147,12 @@ Longhand | Shorthand
 
 #### Logical Functions
 
-Longhand | Shorthand
+Function Name | Alias
 ---|---
-`$or` | N/A
+`$or` | -
 `$notOr` | `$nor`
-N/A | `$xor`
-`$and` | N/A
+`$xor` | -
+`$and` | -
 `$notAnd` | `$nand`
 
 ```js
@@ -174,8 +174,8 @@ N/A | `$xor`
 
 #### New $fns
 
-LongHand | Shorthand
+Function Name | Alias
 ---|---
-`$in` | N/A
+`$in` | -
 `$notIn` | `$nin`
 `$regex` | `$re`
